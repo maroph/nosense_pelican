@@ -1,0 +1,47 @@
+.* export-ignore
+#
+* text=auto
+#
+Makefile  text
+#
+*.adoc    text
+*.asc     text
+*.bash    text eol=lf
+*.c       text
+*.css     text
+*.css.map text
+*.csv     text
+*.html    text
+*.java    text
+*.js      text
+*.js.map  text
+*.json    text
+*.md      text
+*.py      text
+*.sh      text eol=lf
+*.sql     text
+*.svg     text
+*.toml    text
+*.txt     text
+*.xml     text
+*.yaml    text
+*.yml     text
+#
+*.class binary
+*.ear   binary
+*.eot   binary
+*.exe   binary
+*.gif   binary
+*.gz    binary
+*.ico   binary
+*.jar   binary
+*.jpg   binary
+*.pdf   binary
+*.png   binary
+*.rar   binary
+*.ttf   binary
+*.war   binary
+*.woff  binary
+*.woff2 binary
+*.zip   binary
+
