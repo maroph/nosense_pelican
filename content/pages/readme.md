@@ -45,6 +45,11 @@ To keep things simple, I use an own virtual environment for the installation.
 * [PelicanDocumentation](https://docs.getpelican.com/)
 * [ghp-import Sources/Documentation](https://github.com/c-w/ghp-import)
 
+## Themes
+
+* [Themes Preview](https://pelicanthemes.com/)
+* [Themes Sources](https://github.com/getpelican/pelican-themes)
+
 
 ## Create the Pelican Project
 You need an empty directory to create a Pelican skeleton project.
