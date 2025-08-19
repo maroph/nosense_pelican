@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                        <meta charset="utf-8" />
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                        <meta name="generator" content="Pelican" />
+                        <title>Readme</title>
+                        <link rel="stylesheet" href="https://maroph.github.io/nosense_pelican/theme/css/main.css" />
+                                <link href="https://maroph.github.io/nosense_pelican/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="No Sense Atom Feed" />
+        </head>
+
+        <body id="index" class="home">
+                <header id="banner" class="body">
+                        <h1><a href="https://maroph.github.io/nosense_pelican/">No Sense</a></h1>
+                        <nav><ul>
+                                                <li><a href="https://maroph.github.io/nosense_pelican/pages/about.html">About</a></li>
+                        </ul></nav>
+                </header><!-- /#banner -->
+  <section id="content" class="body">
+    <h1 class="entry-title">Readme</h1>
+    
+    <h2>Introduction</h2>
+<p>My idea of is to create a simple blog that I want to host as GitHub Pages.</p>
+<p>I want to write my text in Markdown, so I need some software to
+create the web site data.</p>
+<p>The static site generator <a href="https://getpelican.com/">Pelican</a> seems to
+be just what I need - lets give it a try.</p>
+<p>All the Pelican project data are located in the branch <em>main</em> of my GitHub repository
+<a href="https://github.com/maroph/nosense_pelican">maro/nosense_pelican</a>.</p>
+<p>The created site data are stored in the branch <em>gh-pages</em>, to be served
+as GitHub Pages. I use the Python module 
+<a href="https://github.com/c-w/ghp-import">ghp-import</a>
+to copy the data to this branch.</p>
+<h2>Installation</h2>
+<p>The following Python modules are needed:</p>
+<ul>
+<li><a href="https://pypi.org/project/pelican/">PyPi:pelican</a></li>
+<li><a href="https://pypi.org/project/ghp-import/">PyPi:ghp-import</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>--prompt<span class="w"> </span>pelican<span class="w"> </span>--without-pip<span class="w"> </span>./venv
+chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>./venv<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="nb">source</span><span class="w"> </span>./venv/bin/activate<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="c1">#</span>
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>setuptools
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>wheel
+<span class="c1">#</span>
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span><span class="s2">&quot;pelican[markdown]&quot;</span>
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>ghp-import
+</code></pre></div>
+
+<p>To keep things simple, I use an own virtual environment for the installation.</p>
+<h2>Documentation</h2>
+<ul>
+<li><a href="https://docs.getpelican.com/">PelicanDocumentation</a></li>
+<li><a href="https://github.com/c-w/ghp-import">ghp-import Sources/Documentation</a></li>
+</ul>
+<h2>Themes</h2>
+<ul>
+<li><a href="https://pelicanthemes.com/">Themes Preview</a></li>
+<li><a href="https://github.com/getpelican/pelican-themes">Themes Sources</a></li>
+</ul>
+<h2>Create the Pelican Project</h2>
+<p>You need an empty directory to create a Pelican skeleton project.</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>nosense-pelican
+<span class="nb">cd</span><span class="w"> </span>nosense_pelican
+<span class="c1">#</span>
+pelican-quickstart
+<span class="c1">#</span>
+mkdir<span class="w"> </span>content/images
+mkdir<span class="w"> </span>content/pages
+</code></pre></div>
+
+<h3>Quick Start</h3>
+<p>TODO</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">pelican</span><span class="p">)</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span>
+<span class="n">Welcome</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">pelican</span><span class="o">-</span><span class="n">quickstart</span><span class="w"> </span><span class="n">v4</span><span class="mf">.11.0</span><span class="p">.</span>
+
+<span class="n">This</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pelican</span><span class="o">-</span><span class="n">based</span><span class="w"> </span><span class="n">website</span><span class="p">.</span>
+
+<span class="n">Please</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">questions</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">files</span>
+<span class="n">needed</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">Pelican</span><span class="p">.</span>
+
+
+<span class="o">&gt;</span><span class="w"> </span><span class="k">Where</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">.</span><span class="o">]</span><span class="w"> </span><span class="p">.</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">What</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="k">No</span><span class="w"> </span><span class="n">Sense</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Who</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">author</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="n">maroph</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">What</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="k">language</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">site</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">en</span><span class="o">]</span><span class="w"> </span><span class="n">en</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">specify</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="k">prefix</span><span class="vm">?</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.,</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="w">   </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">Y</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">What</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="k">prefix</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">see</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="n">example</span><span class="p">;</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="k">trailing</span><span class="w"> </span><span class="n">slash</span><span class="p">)</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">maroph</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">nosense_pelican</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">article</span><span class="w"> </span><span class="n">pagination</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">Y</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">How</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">articles</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">10</span><span class="o">]</span><span class="w"> </span><span class="mi">10</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">What</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="nc">time</span><span class="w"> </span><span class="k">zone</span><span class="vm">?</span><span class="w"> </span><span class="o">[</span><span class="n">Europe/Rome</span><span class="o">]</span><span class="w"> </span><span class="n">Europe</span><span class="o">/</span><span class="n">Berlin</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">tasks</span><span class="p">.</span><span class="n">py</span><span class="o">/</span><span class="n">Makefile</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">automate</span><span class="w"> </span><span class="n">generation</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">publishing</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="n">y</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">FTP</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">n</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">SSH</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">n</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">Dropbox</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">n</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">S3</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">n</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">Rackspace</span><span class="w"> </span><span class="n">Cloud</span><span class="w"> </span><span class="n">Files</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">n</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">website</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">GitHub</span><span class="w"> </span><span class="n">Pages</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">y</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="k">Is</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">personal</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="p">(</span><span class="n">username</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="p">)</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="n">y</span>
+<span class="n">Done</span><span class="p">.</span><span class="w"> </span><span class="n">Your</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">project</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="p">...</span><span class="o">/</span><span class="n">nosense_pelican</span>
+</code></pre></div>
+
+<h4>File pelicanconf.py</h4>
+<p>TODO</p>
+<div class="highlight"><pre><span></span><code>cat pelicanconf.py
+AUTHOR = &#39;maroph&#39;
+SITENAME = &#39;No Sense&#39;
+SITEURL = &quot;&quot;
+
+PATH = &quot;content&quot;
+
+TIMEZONE = &#39;Europe/Berlin&#39;
+
+DEFAULT_LANG = &#39;en&#39;
+
+<span class="gh">#</span> Feed generation is usually not desired when developing
+FEED_ALL_ATOM = None
+CATEGORY_FEED_ATOM = None
+TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
+
+<span class="gh">#</span> Blogroll
+LINKS = (
+    (&quot;Pelican&quot;, &quot;https://getpelican.com/&quot;),
+    (&quot;Python.org&quot;, &quot;https://www.python.org/&quot;),
+    (&quot;Jinja2&quot;, &quot;https://palletsprojects.com/p/jinja/&quot;),
+    (&quot;You can modify those links in your config file&quot;, &quot;#&quot;),
+)
+
+<span class="gh">#</span> Social widget
+SOCIAL = (
+    (&quot;You can add links in your config file&quot;, &quot;#&quot;),
+    (&quot;Another social link&quot;, &quot;#&quot;),
+)
+
+DEFAULT_PAGINATION = 10
+
+<span class="gh">#</span> Uncomment following line if you want document-relative URLs when developing
+<span class="gh">#</span> RELATIVE_URLS = True
+</code></pre></div>
+
+<h4>File publishconf.py</h4>
+<p>TODO</p>
+<div class="highlight"><pre><span></span><code><span class="n">cat</span><span class="w"> </span><span class="n">publishconf</span><span class="o">.</span><span class="n">py</span>
+<span class="c1"># This file is only used if you use `make publish` or</span>
+<span class="c1"># explicitly specify it as your config file.</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">curdir</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pelicanconf</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="o">*</span>
+
+<span class="c1"># If your site is available via HTTPS, make sure SITEURL begins with https://</span>
+<span class="n">SITEURL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://maroph.github.io/nosense_pelican&quot;</span>
+<span class="n">RELATIVE_URLS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">False</span>
+
+<span class="n">FEED_ALL_ATOM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;feeds/all.atom.xml&quot;</span>
+<span class="n">CATEGORY_FEED_ATOM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;feeds/</span><span class="si">{slug}</span><span class="s2">.atom.xml&quot;</span>
+
+<span class="n">DELETE_OUTPUT_DIRECTORY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">True</span>
+
+<span class="c1"># Following items are often useful when publishing</span>
+
+<span class="c1"># DISQUS_SITENAME = &quot;&quot;</span>
+<span class="c1"># GOOGLE_ANALYTICS = &quot;&quot;</span>
+</code></pre></div>
+
+<h2>Adapt the Pelican Project</h2>
+<h3>File pelicanconf.py</h3>
+<p>TODO</p>
+<div class="highlight"><pre><span></span><code>cat pelicanconf.py
+AUTHOR = &#39;maroph&#39;
+SITENAME = &#39;No Sense&#39;
+SITEURL = &quot;&quot;
+
+PATH = &quot;content&quot;
+
+TIMEZONE = &#39;Europe/Berlin&#39;
+
+DEFAULT_LANG = &#39;en&#39;
+
+FEED_ALL_ATOM = None
+CATEGORY_FEED_ATOM = None
+TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
+
+USE_FOLDER_AS_CATEGORY = False
+DISPLAY_CATEGORIES_ON_MENU = False
+DISPLAY_PAGES_ON_MENU = True
+
+LINKS = (
+    (&quot;GitHub&quot;, &quot;https://github.com/maroph&quot;),
+    (&quot;CC-BY-4.0&quot;, &quot;https://creativecommons.org/licenses/by/4.0/legalcode&quot;)
+)
+
+SOCIAL = ()
+
+DEFAULT_PAGINATION = 10
+</code></pre></div>
+
+<h3>File publishconf.py</h3>
+<p>TODO</p>
+<div class="highlight"><pre><span></span><code><span class="n">cat</span><span class="w"> </span><span class="n">publishconf</span><span class="o">.</span><span class="n">py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">curdir</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pelicanconf</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="o">*</span>
+
+<span class="n">SITEURL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://maroph.github.io/nosense_pelican&quot;</span>
+<span class="n">RELATIVE_URLS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">False</span>
+
+<span class="n">FEED_ALL_ATOM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;feeds/all.atom.xml&quot;</span>
+
+<span class="n">DELETE_OUTPUT_DIRECTORY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">True</span>
+</code></pre></div>
+
+<h2>Build/Test Commands</h2>
+<h3>Build the Local Site</h3>
+<div class="highlight"><pre><span></span><code>pelican
+</code></pre></div>
+
+<h3>Run the Local Site</h3>
+<div class="highlight"><pre><span></span><code>pelican<span class="w"> </span>--autoreload<span class="w"> </span>--listen
+</code></pre></div>
+
+<p>The local site is available at <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a></p>
+<h3>Deploy the Site</h3>
+<div class="highlight"><pre><span></span><code>pelican<span class="w"> </span>-s<span class="w"> </span>./publishconf.py
+ghp-import<span class="w"> </span>--no-jekyll<span class="w"> </span>--push<span class="w"> </span>--no-history<span class="w"> </span>./output
+</code></pre></div>
+  </section>
+                <section id="extras" class="body">
+                                <div class="blogroll">
+                                        <h2>links</h2>
+                                        <ul>
+                                                        <li><a href="https://github.com/maroph">GitHub</a></li>
+                                                        <li><a href="https://creativecommons.org/licenses/by/4.0/legalcode">CC-BY-4.0</a></li>
+                                        </ul>
+                                </div><!-- /.blogroll -->
+                                <div class="social">
+                                        <h2>social</h2>
+                                        <ul>
+                                                        <li><a href="https://maroph.github.io/nosense_pelican/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                                        </ul>
+                                </div><!-- /.social -->
+                </section><!-- /#extras -->
+
+                <footer id="contentinfo" class="body">
+                        <address id="about" class="vcard body">
+                                Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
+                        </address><!-- /#about -->
+
+                        <p>The theme is by <a rel="nofollow" href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+                </footer><!-- /#contentinfo -->
+
+        </body>
+</html>
