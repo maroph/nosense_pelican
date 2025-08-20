@@ -19,8 +19,8 @@ DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_PAGES_ON_MENU = True
 
 LINKS = (
-    ("GitHub", "https://github.com/maroph"),
-    ("CC-BY-4.0", "https://creativecommons.org/licenses/by/4.0/legalcode")
+    ("CC-BY-4.0", "https://creativecommons.org/licenses/by/4.0/legalcode"),
+    ("GitHub", "https://github.com/maroph")
 )
 
 SOCIAL = ()

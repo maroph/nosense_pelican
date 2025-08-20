@@ -1,5 +1,5 @@
-Title: Readme
-Date: 25-08-17 16:31
+Title: Config
+Date: 25-08-20 14:18
 Status: hidden
 
 ## Introduction
@@ -50,6 +50,10 @@ To keep things simple, I use an own virtual environment for the installation.
 * [Themes Preview](https://pelicanthemes.com/)
 * [Themes Sources](https://github.com/getpelican/pelican-themes)
 
+## Plugins
+
+* [Pluguins](https://github.com/pelican-plugins)
+* [Legacy Plugins](https://github.com/getpelican/pelican-plugins)
 
 ## Create the Pelican Project
 You need an empty directory to create a Pelican skeleton project.
