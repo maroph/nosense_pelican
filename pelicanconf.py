@@ -1,3 +1,5 @@
+THEME = './themes/maroph'
+
 AUTHOR = 'maroph'
 SITENAME = 'No Sense'
 SITEURL = ""
@@ -18,11 +20,18 @@ USE_FOLDER_AS_CATEGORY = False
 DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_PAGES_ON_MENU = True
 
+# MENUITEMS = (
+#     ("MI1", "pages/mi1.html"),
+#     ("MI2", "pages/mi1.html"),
+# )
+
 LINKS = (
     ("CC-BY-4.0", "https://creativecommons.org/licenses/by/4.0/legalcode"),
-    ("GitHub", "https://github.com/maroph")
+    ("GitHub", "https://github.com/maroph"),
+    ("Mastodon", "https://mastodon.social/@maroph")
 )
 
 SOCIAL = ()
 
 DEFAULT_PAGINATION = 10
+

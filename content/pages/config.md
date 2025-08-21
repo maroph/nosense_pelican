@@ -1,5 +1,5 @@
 Title: Config
-Date: 25-08-20 14:18
+Date: 25-08-21 16:48
 Status: hidden
 
 ## Introduction
@@ -49,10 +49,12 @@ To keep things simple, I use an own virtual environment for the installation.
 
 * [Themes Preview](https://pelicanthemes.com/)
 * [Themes Sources](https://github.com/getpelican/pelican-themes)
+* [Basic Theme](https://docs.getpelican.com/en/latest/_downloads/5223ee54901eaa482878a946f6cf0f08/theme-basic.zip)
+* [Simple Theme](https://github.com/getpelican/pelican/tree/main/pelican/themes/simple)
 
 ## Plugins
 
-* [Pluguins](https://github.com/pelican-plugins)
+* [Plugins](https://github.com/pelican-plugins)
 * [Legacy Plugins](https://github.com/getpelican/pelican-plugins)
 
 ## Create the Pelican Project
@@ -233,9 +235,19 @@ DELETE_OUTPUT_DIRECTORY = True
 pelican
 ```
 
+```python
+from pelican import main as pelican_main
+pelican_main()
+```
+
 ### Run the Local Site
 ```bash
 pelican --autoreload --listen
+```
+
+```python
+from pelican import main as pelican_main
+pelican_main(("--autoreload", "--listen"))
 ```
 
 The local site is available at <http://127.0.0.1:8000>
@@ -244,5 +256,13 @@ The local site is available at <http://127.0.0.1:8000>
 ```bash
 pelican -s ./publishconf.py
 ghp-import --no-jekyll --push --no-history ./output
+```
+
+```python
+from pelican import main as pelican_main
+from ghp_import import ghp_import
+
+pelican_main(('-s', './publishconf.py'))
+ghp_import('./output', push=True, nijekyll=True, no_history=True)
 ```
 

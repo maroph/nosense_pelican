@@ -14,7 +14,7 @@ LICENSE="License: MIT <https://choosealicense.com/licenses/mit/>"
 #
 declare -r SCRIPT_NAME=$(basename $0)
 declare -r VERSION="0.1.0"
-declare -r VERSION_DATE="17-AUG-2025"
+declare -r VERSION_DATE="21-AUG-2025"
 declare -r VERSION_STRING="${SCRIPT_NAME}  ${VERSION}  (${VERSION_DATE})"
 #
 SCRIPT_DIR=$(dirname $0)
@@ -53,24 +53,34 @@ Usage: ${SCRIPT_NAME} [<options>] <filename>
        Create a new Pelican item (post or page) file.
 
     Options:
-    -h|--help    : show this help text and exit
-    -V|--version : show version information and exit
-    -n|--no-edit : TODO
+    -h|--help     : show this help text and exit
+    -V|--version  : show version information and exit
+    --list        :
+    --list-images : 
+    --list-pages  : 
+    --list-posts  : 
+    -n|--no-edit  : TODO
     -p|--page    : create a page (default: post)
     --draft      : set item status to draft
     --hidden     : set item status to hidden
     --skip       : set item status to skip
     --published  : set item status to published
-    --lang-de    : TODO
-    --lang-en    : TODO
+    --lang-de    : set item language to de
+    --lang-en    : set item language to en (default)
+    --lang-nl    : set item language to nl
 
     Argument:
-    filename : name of Markdown file (with extension .md) to create
+    filename : name of Markdown file (*.md) to create
+
+    The given path of the file name will be prepend with
+     "content/" (post) or "content/pages/" (page).
 
 EOT
 }
 #
 ###############################################################################
+#
+cd ${SCRIPT_DIR} || exit 1 
 #
 while :
 do
@@ -84,6 +94,22 @@ do
             echo "${VERSION_STRING}"
             echo "${COPYRIGHT}"
             echo "${LICENSE}"
+            exit 0
+            ;;
+        --list)
+            find content -print | sed -e '/^content$/d' -e 's!^content/!!'
+            exit 0
+            ;;
+        --list-images)
+            find content/images -print | sed -e '/^content.images$/d' -e 's!^content/images/!!' -e '/^images$/d'
+            exit 0
+            ;;
+        --list-pages)
+            find content/pages -print | sed -e '/^content.pages$/d' -e 's!^content/pages/!!' -e '/^pages$/d'
+            exit 0
+            ;;
+        --list-posts)
+            find content -print | grep -v 'content/pages/' | sed -e '/^content$/d' -e 's!^content/!!' -e '/^pages$/d'
             exit 0
             ;;
         -n | --no-edit)
@@ -109,6 +135,9 @@ do
             ;;
         --lang-en)
             lang="en"
+            ;;
+        --lang-nl)
+            lang="nl"
             ;;
         -*)
             echo "${SCRIPT_NAME}: '$1' : unknown option"
@@ -208,7 +237,6 @@ then
     echo "Lang: ${lang}" >> ${file}
 fi
 #
-#echo Status: draft, hidden, skip, or published
 if [ "${status}" != "" ]
 then
     echo Status: ${status} >> ${file}
